@@ -1,0 +1,88 @@
+
+================= P_router ssh config =================
+
+conf t
+hostname P_router
+username root secret cisco
+enable password cisco
+ip domain name cisco.net
+crypto key generate rsa
+2048
+ip ssh version 2
+
+do wr
+
+
+line vty 0 4
+login local
+transport input ssh telnet
+exit
+
+int fa0/0
+ip address 192.168.122.254 255.255.255.0
+no shut
+exit
+do wr
+exit
+
+
+
+================= PE1_router ssh config =================
+
+
+conf t
+hostname PE_1
+username admin secret cisco
+enable password cisco
+ip domain name cisco.net
+crypto key generate rsa
+2048
+ip ssh version 2
+
+do wr
+
+
+line vty 0 4
+login local
+transport input ssh telnet
+exit
+
+int fa0/0
+ip address 192.168.122.253 255.255.255.0
+no shut
+exit
+do wr
+exit
+
+sh run
+
+================= PE2_router ssh config =================
+
+
+conf t
+hostname PE_2
+username admin secret cisco
+enable password cisco
+ip domain name cisco.net
+crypto key generate rsa
+2048
+ip ssh version 2
+
+do copy run start
+
+
+line vty 0 4
+login local
+transport input ssh telnet
+exit
+
+int fa0/0
+ip address 192.168.122.252 255.255.255.0
+no shut
+end
+copy run start
+
+sh run
+
+++++++++++++++++++++++++++
+
