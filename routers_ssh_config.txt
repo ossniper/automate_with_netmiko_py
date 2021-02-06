@@ -44,7 +44,7 @@ do wr
 
 line vty 0 4
 login local
-transport input ssh telnet
+transport input all
 exit
 
 int fa0/0
@@ -73,7 +73,7 @@ do copy run start
 
 line vty 0 4
 login local
-transport input ssh telnet
+transport input all
 exit
 
 int fa0/0

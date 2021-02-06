@@ -1,0 +1,68 @@
+
+----------------------P------------------------
+
+
+router ospf 100
+router-id 10.10.10.10
+network 10.10.10.10 0.0.0.0
+network 172.168.10.0 0.0.0.3
+do wr
+
+
+int fastEthernet1/0
+ip ospf area 0
+ip address 172.168.10.2 255.255.255.252
+description PE-2
+no shut
+exit
+
+
+int fastEthernet2/0
+ip address 172.168.10.5 255.255.255.252
+description PE-1
+ip ospf area 0
+no shut
+exit
+
+
+
+======================PE_2====================
+
+router ospf 100
+router-id 2.2.2.2
+network 2.2.2.2
+network 172.168.10.0 0.0.0.3
+exit
+
+copy run start
+
+
+int fastEthernet1/0
+ip address 172.168.10.1 255.255.255.252
+ip ospf 100 area 0
+description P_router
+no shut
+do wr
+exit
+
+
+
+
+============================PE_1==========================
+
+router ospf 100
+router-id 1.1.1.1
+network 1.1.1.1
+network 172.168.10.0 0.0.0.3
+exit
+
+copy run start
+
+int fastEthernet2/0
+ip address 172.168.10.6 255.255.255.252
+ip ospf 100 area 0
+description P router
+no shut
+do wr
+exit
+
