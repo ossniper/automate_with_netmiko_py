@@ -1,0 +1,37 @@
+
+# We are currently workin with 3 cisco_ios routers.. 
+
+# router 1 username has been changed to align with other routers.
+
+
+
+
+ [
+    {"device_type": "cisco_ios",
+     "ip": "192.168.122.254",
+     "username": "admin",
+     "password": "cisco",
+     "port": "22",
+     "secret": "cisco",
+     "verbose": "True"
+   },
+   {
+     "device_type": "cisco_ios",
+     "ip": "192.168.122.252",
+     "username": "admin",
+     "password": "cisco",
+     "port": "22",
+     "secret": "cisco",
+     "verbose": "True"
+   },
+   {
+     "device_type": "cisco_ios",
+     "ip": "192.168.122.252",
+     "username": "admin",
+     "password": "cisco",
+     "port": "22",
+     "secret": "cisco",
+     "verbose": "True"
+   }
+
+ ]
